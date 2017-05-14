@@ -1,0 +1,59 @@
+<div class="demo-blog__posts mdl-grid">
+
+    <div class="mdl-card mdl-cell mdl-cell--8-col holiday">
+        <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Search a Flight</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" name="from" [(ngModel)]="from">
+            <label class="mdl-textfield__label" for="from">From ...</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" name="to" [(ngModel)]="to">
+            <label class="mdl-textfield__label" for="to">To ...</label>
+          </div>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a (click)="search()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          Search
+        </a>
+      </div>
+    </div>
+
+    <div class="mdl-card mdl-cell mdl-cell--4-col holiday">
+        <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Your Flight</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+          Id: {{selectedFlight?.id}}<br>
+          From: {{selectedFlight?.from}}<br>
+          To: {{selectedFlight?.to}}<br>
+          Date: {{selectedFlight?.date | date:'dd.MM.yyyy HH:mm'}}
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          Select
+        </a>
+      </div>
+    </div>
+
+    <div class="mdl-card mdl-cell mdl-cell--4-col holiday" *ngFor="let f of flights">
+        <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">{{f.from}} - {{f.to}}</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+          Id: {{f.id}}<br>
+          From: {{f.from}}<br>
+          To: {{f.from}}<br>
+          Date: {{f.date | date:'dd.MM.yyyy HH:mm'}}
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a (click)="select(f)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          Select
+        </a>
+      </div>
+    </div>
+
+</div>
+
